@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <title>Viva Q&A - AI Smart Interview System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      color: #111;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a1a2e;
+      border-bottom: 3px solid #e94560;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      color: #e94560;
+      margin-top: 30px;
+    }
+
+    #downloadBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #e94560, #1a1a2e);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+      z-index: 9999;
+      transition: transform 0.2s;
+    }
+
+    #downloadBtn:hover {
+      transform: scale(1.05);
+    }
+
+    @media print {
+      #downloadBtn {
+        display: none;
+      }
+    }
+
+    .qa {
+      background: #f9f9f9;
+      border-left: 4px solid #e94560;
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 4px;
+    }
+
+    .q {
+      font-weight: bold;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .a {
+      color: #333;
+      line-height: 1.6;
+    }
+
+    @media print {
+      body {
+        margin: 20px;
+      }
+    }
+
+    .section {
+      page-break-inside: avoid;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="downloadBtn" onclick="downloadPDF()">⬇️ Download PDF</button>
+  <div id="content">
+    <h1>🎓 Viva Preparation - AI Smart Interview System</h1>
+    <p style="text-align:center;color:#555;">Prepared by: Ashraf Ali | Project: AI Smart Interview System</p>
+
+    <div class="section">
+      <h2>📌 Section 1: Project Overview</h2>
+
+      <div class="qa">
+        <div class="q">Q1. What is AI Smart Interview System?</div>
+        <div class="a">A. It is a full-stack web application that simulates real job interviews using Artificial
+          Intelligence. It generates questions based on the user's resume, records voice answers, provides AI feedback,
+          and tracks performance history.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q2. What is the main objective of this project?</div>
+        <div class="a">A. The main objective is to help job seekers practice interviews in a realistic AI-powered
+          environment, get instant feedback, and improve their performance over time using data-driven insights.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q3. What technologies did you use in this project?</div>
+        <div class="a">A. Frontend: React.js, Vite, CSS. Backend: Node.js, Express.js. Database: MongoDB with Mongoose.
+          AI: OpenAI GPT API. Voice: Web Speech API (STT & TTS). Authentication: JWT (JSON Web Tokens).</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q4. What are the main modules of this project?</div>
+        <div class="a">A. 1) User Authentication (Login/Register), 2) Resume Upload & Parsing, 3) AI Interview Session,
+          4) Voice Interaction (Speech to Text), 5) AI Feedback & Scoring, 6) Interview History Dashboard, 7) Question
+          Bank (Admin).</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 2: Frontend (React.js)</h2>
+
+      <div class="qa">
+        <div class="q">Q5. Why did you use React.js for the frontend?</div>
+        <div class="a">A. React.js provides a component-based architecture which makes the UI modular and reusable. It
+          has fast rendering using Virtual DOM, strong community support, and integrates well with REST APIs.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q6. What is Vite and why did you use it?</div>
+        <div class="a">A. Vite is a fast build tool for modern web applications. It provides instant server start, hot
+          module replacement (HMR), and much faster build speeds compared to traditional tools like Create React App.
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q7. How does routing work in your React app?</div>
+        <div class="a">A. We use React Router DOM for client-side routing. Routes are defined for pages like Login,
+          Register, Dashboard, Interview, History, and Resume Upload. Protected routes redirect unauthenticated users to
+          the login page.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q8. How do you manage state in your application?</div>
+        <div class="a">A. We use React's built-in useState and useEffect hooks for local component state. For shared
+          state like user authentication, we use React Context API to pass data across components without prop drilling.
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q9. What is the History page in your project?</div>
+        <div class="a">A. The History page shows all past interview sessions of a user. It displays each session's date,
+          score, questions asked, user's answers, AI feedback, strengths, and weaknesses in an expandable card layout.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 3: Backend (Node.js & Express)</h2>
+
+      <div class="qa">
+        <div class="q">Q10. Why did you use Node.js for the backend?</div>
+        <div class="a">A. Node.js is non-blocking and event-driven, making it highly efficient for handling multiple
+          simultaneous API requests. It uses JavaScript on both frontend and backend, which simplifies development.
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q11. What is Express.js and what role does it play?</div>
+        <div class="a">A. Express.js is a minimal web framework for Node.js. It handles HTTP routing, middleware
+          management, request/response handling, and connects the frontend with the database and OpenAI API.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q12. What API routes did you create in the backend?</div>
+        <div class="a">A. Main routes: /api/auth (login, register), /api/interview (start session, submit answer),
+          /api/history (get past sessions), /api/resume (upload and parse resume), /api/dashboard (performance stats),
+          /api/questions (admin question bank).</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q13. How did you secure your API routes?</div>
+        <div class="a">A. We use JWT (JSON Web Token) authentication middleware. Every protected route checks for a
+          valid token in the request header. Admin routes use an additional secret key validation for extra security.
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q14. What is middleware in Express.js?</div>
+        <div class="a">A. Middleware are functions that execute between receiving a request and sending a response.
+          Examples: cors() for cross-origin requests, express.json() for parsing JSON body, and our custom
+          authMiddleware for JWT verification.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 4: Database (MongoDB)</h2>
+
+      <div class="qa">
+        <div class="q">Q15. Why did you choose MongoDB over SQL databases?</div>
+        <div class="a">A. MongoDB is a NoSQL database that stores data as flexible JSON-like documents. It is ideal for
+          this project because interview data (questions, answers, feedback) has varying structures that don't fit well
+          into fixed SQL table schemas.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q16. What is Mongoose and why is it used?</div>
+        <div class="a">A. Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides schema
+          validation, model creation, and a clean API to interact with MongoDB, making database operations more
+          structured and reliable.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q17. What are the main MongoDB collections (schemas) in your project?</div>
+        <div class="a">A. 1) User: name, email, password (hashed), createdAt. 2) Interview: userId, questions[],
+          answers[], feedback[], score, date. 3) Question: text, category, difficulty, expectedAnswer. 4) Resume:
+          userId, parsedText, skills, experience.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q18. How do you store passwords securely?</div>
+        <div class="a">A. Passwords are never stored in plain text. We use bcrypt.js to hash passwords before saving to
+          the database. During login, bcrypt.compare() verifies the entered password against the stored hash.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 5: AI & OpenAI Integration</h2>
+
+      <div class="qa">
+        <div class="q">Q19. How does the AI generate interview questions?</div>
+        <div class="a">A. We send a prompt to OpenAI GPT API containing the user's resume text and job role. The AI
+          generates relevant, personalized interview questions based on the candidate's skills and experience.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q20. How does the AI provide feedback on answers?</div>
+        <div class="a">A. After the user answers a question (via voice or text), we send both the question and the
+          user's answer to GPT. The model evaluates it and returns structured feedback including score, strengths,
+          weaknesses, and suggestions.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q21. What is a prompt in the context of GPT/OpenAI?</div>
+        <div class="a">A. A prompt is the instruction or input text we send to the GPT model. We craft specific prompts
+          that tell GPT to act as an interviewer, evaluate responses, and return feedback in a structured JSON format.
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q22. What is an API key and how did you manage it securely?</div>
+        <div class="a">A. An API key is a secret credential to authenticate with the OpenAI service. We store it in a
+          .env file (OPENAI_API_KEY) and use dotenv package to load it. The .env file is never committed to version
+          control (added to .gitignore).</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 6: Voice Interaction</h2>
+
+      <div class="qa">
+        <div class="q">Q23. How did you implement voice input (Speech to Text)?</div>
+        <div class="a">A. We used the Web Speech API's SpeechRecognition interface built into modern browsers. It
+          converts the user's spoken words into text in real-time, which is then sent as the interview answer to the
+          backend.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q24. How does Text to Speech (TTS) work in your project?</div>
+        <div class="a">A. We use the SpeechSynthesis API (browser built-in). The AI-generated questions and feedback are
+          read aloud using window.speechSynthesis.speak(), making the interview feel like a real conversation.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q25. What is the Web Speech API?</div>
+        <div class="a">A. The Web Speech API is a browser-native API that provides two interfaces: SpeechRecognition
+          (converting voice to text) and SpeechSynthesis (converting text to voice). It works without any external
+          library for basic usage.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 7: Authentication & Security</h2>
+
+      <div class="qa">
+        <div class="q">Q26. What is JWT (JSON Web Token)?</div>
+        <div class="a">A. JWT is a compact, self-contained token for securely transmitting information between client
+          and server. After login, the server signs a token with a secret key. The client sends this token in every
+          subsequent request for authentication.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q27. What is the structure of a JWT token?</div>
+        <div class="a">A. A JWT has three parts separated by dots: Header.Payload.Signature. Header: algorithm type.
+          Payload: user data (userId, email). Signature: ensures the token hasn't been tampered with.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q28. What is CORS and why is it needed?</div>
+        <div class="a">A. CORS (Cross-Origin Resource Sharing) is a browser security feature that blocks requests from
+          different origins. Since our frontend (port 5173) and backend (port 5000) run on different ports, we enable
+          CORS middleware in Express to allow these cross-origin requests.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 8: Resume Parsing</h2>
+
+      <div class="qa">
+        <div class="q">Q29. How does resume upload work in your project?</div>
+        <div class="a">A. Users upload their PDF resume through the frontend. The backend uses multer middleware to
+          handle file uploads. The resume text is extracted and parsed to identify skills, experience, and education,
+          which are then used to generate personalized interview questions.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q30. What is multer?</div>
+        <div class="a">A. Multer is a Node.js middleware for handling multipart/form-data, which is primarily used for
+          file uploads. It processes the uploaded file and makes it accessible via req.file in Express route handlers.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📌 Section 9: Project Architecture & Deployment</h2>
+
+      <div class="qa">
+        <div class="q">Q31. Explain the folder structure of your project.</div>
+        <div class="a">A. The project has two main folders: /frontend (React app with Vite) and /backend
+          (Node.js/Express server). Backend has /routes, /models, /middleware, /controllers, and /config folders.
+          Frontend has /src with /pages, /components, /context, and /services.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q32. What is a REST API?</div>
+        <div class="a">A. REST (Representational State Transfer) API is an architectural style for building web
+          services. It uses standard HTTP methods: GET (fetch data), POST (create data), PUT (update data), DELETE
+          (remove data). Our backend exposes REST endpoints that the frontend consumes.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q33. How does the frontend communicate with the backend?</div>
+        <div class="a">A. The frontend uses the Fetch API or Axios to make HTTP requests to the backend REST API. The
+          backend processes the request, interacts with MongoDB and OpenAI, and sends back a JSON response which React
+          renders in the UI.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q34. What is .env file and why is it important?</div>
+        <div class="a">A. The .env file stores environment variables like API keys, database connection strings, and JWT
+          secrets. It keeps sensitive configuration out of the source code. The dotenv package loads these variables
+          into process.env at runtime.</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">Q35. What future enhancements can be added to this project?</div>
+        <div class="a">A. 1) Video interview with facial expression analysis. 2) Multi-language support. 3)
+          Company-specific interview modes. 4) Detailed analytics dashboard with charts. 5) Peer-to-peer mock interview
+          feature. 6) Mobile app using React Native. 7) Integration with LinkedIn for profile-based questions.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;padding:20px;background:#1a1a2e;color:#fff;border-radius:8px;">
+      <strong>Best of Luck for your Viva! 🚀</strong><br>
+      AI Smart Interview System | All Rights Reserved
+    </div>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      const btn = document.getElementById('downloadBtn');
+      btn.style.display = 'none';
+      const element = document.getElementById('content');
+      const opt = {
+        margin: 10,
+        filename: 'Viva_QA_AI_Smart_Interview.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save().then(() => {
+        btn.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+
+</html>

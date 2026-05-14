@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Smart Interview System – Project Synopsis</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;font-size:14px;line-height:1.7;}
+  #content{max-width:900px;margin:0 auto;padding:40px;}
+  h1{font-size:2rem;font-weight:800;color:#0f172a;border-bottom:4px solid #0ea5e9;padding-bottom:10px;margin-bottom:6px;}
+  h2{font-size:1.2rem;font-weight:700;color:#0ea5e9;margin:24px 0 10px;border-left:4px solid #0ea5e9;padding-left:10px;}
+  h3{font-size:.95rem;font-weight:700;color:#1e293b;margin:12px 0 5px;}
+  p{margin-bottom:10px;color:#334155;}
+  .badge{display:inline-block;background:#e0f2fe;color:#0369a1;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;margin:2px;}
+  .cover{text-align:center;padding:50px 0 36px;border-bottom:2px solid #e2e8f0;margin-bottom:28px;}
+  .cover h1{border:none;font-size:2.3rem;}
+  .cover .sub{color:#64748b;font-size:.95rem;margin-top:8px;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+  th{background:#0ea5e9;color:#fff;padding:8px 12px;text-align:left;}
+  td{padding:7px 12px;border-bottom:1px solid #e2e8f0;}
+  tr:nth-child(even) td{background:#f1f5f9;}
+  .box{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin:10px 0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0;}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;}
+  .card h3{color:#0ea5e9;margin-bottom:6px;}
+  .arch{background:#fff;border:2px solid #cbd5e1;border-radius:12px;padding:20px;margin:12px 0;font-size:12px;}
+  .arch-row{display:flex;justify-content:center;gap:16px;margin:8px 0;}
+  .arch-box{background:#dbeafe;border:2px solid #0ea5e9;border-radius:8px;padding:9px 14px;text-align:center;font-weight:600;color:#0369a1;min-width:100px;}
+  .arch-box.green{background:#dcfce7;border-color:#22c55e;color:#166534;}
+  .arch-box.purple{background:#ede9fe;border-color:#8b5cf6;color:#5b21b6;}
+  .arch-box.amber{background:#fef9c3;border-color:#f59e0b;color:#92400e;}
+  .arch-box.gray{background:#f1f5f9;border-color:#94a3b8;color:#475569;}
+  .arrow{text-align:center;font-size:16px;color:#94a3b8;margin:2px 0;}
+  .flow{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:10px 0;}
+  .fbox{background:#dbeafe;border:2px solid #0ea5e9;border-radius:7px;padding:7px 12px;font-size:12px;font-weight:600;color:#0369a1;text-align:center;}
+  .farrow{color:#0ea5e9;font-size:16px;font-weight:bold;}
+  .schema{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px;font-size:12px;margin:8px 0;}
+  .schema-title{font-weight:700;color:#7c3aed;margin-bottom:6px;font-size:13px;}
+  .schema-field{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e2e8f0;}
+  .schema-field:last-child{border:none;}
+  .field-name{color:#1e293b;font-weight:600;}
+  .field-type{color:#64748b;}
+  ul{padding-left:18px;margin-bottom:8px;}
+  li{margin-bottom:3px;color:#334155;}
+  .highlight{background:#fef3c7;padding:2px 6px;border-radius:4px;font-weight:600;color:#92400e;}
+  /* Download Button Bar */
+  #btn-bar{position:fixed;top:0;left:0;right:0;background:#0f172a;padding:12px 24px;display:flex;align-items:center;gap:14px;z-index:9999;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+  #btn-bar span{color:#94a3b8;font-size:13px;flex:1;}
+  .dl-btn{background:linear-gradient(135deg,#0ea5e9,#8b5cf6);color:#fff;border:none;padding:10px 22px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;transition:opacity .2s;}
+  .dl-btn:hover{opacity:.85;}
+  .dl-btn.secondary{background:#1e293b;border:1px solid #334155;}
+  #content{margin-top:62px;}
+</style>
+</head>
+<body>
+
+<!-- STICKY DOWNLOAD BAR -->
+<div id="btn-bar">
+  <span>📄 AI Smart Interview System – Project Synopsis</span>
+  <button class="dl-btn secondary" onclick="exportToWord()">📝 Download Word</button>
+  <button class="dl-btn secondary" onclick="window.print()">🖨️ Print</button>
+  <button class="dl-btn" onclick="downloadPDF()">⬇️ Download PDF</button>
+</div>
+
+<div id="content">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div style="font-size:3rem;margin-bottom:14px;">🤖</div>
+    <h1>AI Smart Interview System</h1>
+    <p class="sub">A Full-Stack AI-Powered Interview Practice Platform</p>
+    <div style="margin-top:14px;">
+      <span class="badge">React.js</span><span class="badge">Node.js</span><span class="badge">MongoDB</span>
+      <span class="badge">OpenAI GPT</span><span class="badge">Voice Recognition</span><span class="badge">JWT Auth</span>
+    </div>
+    <p style="margin-top:18px;color:#64748b;font-size:13px;">Submitted for: Final Year Project (B.Tech / BCA / MCA)</p>
+    <p style="color:#64748b;font-size:13px;">Developed by: Ashraf Ali &nbsp;|&nbsp; Year: 2025–2026</p>
+  </div>
+
+  <!-- 1. INTRODUCTION -->
+  <h2>1. Introduction</h2>
+  <p>The <strong>AI Smart Interview System</strong> is a modern web application that allows students and job seekers to practice real-world job interviews using Artificial Intelligence. The system generates intelligent interview questions based on the candidate's role and resume, evaluates their spoken answers in real-time, and provides detailed feedback on performance metrics like technical knowledge, communication, and confidence.</p>
+  <p>The platform supports <span class="highlight">Voice-based answering</span> (Speech-to-Text), <span class="highlight">AI-generated questions</span> via OpenAI GPT-3.5, and <span class="highlight">adaptive difficulty</span> that changes based on candidate performance.</p>
+
+  <!-- 2. OBJECTIVES -->
+  <h2>2. Objectives</h2>
+  <ul>
+    <li>Build an AI-powered platform that simulates real job interview experiences.</li>
+    <li>Generate role-specific interview questions dynamically using OpenAI API.</li>
+    <li>Enable voice-based answer submission using Web Speech Recognition API.</li>
+    <li>Analyze and score candidate answers across multiple parameters.</li>
+    <li>Maintain a full interview history for tracking progress over time.</li>
+    <li>Extract skills from uploaded resumes and personalize questions accordingly.</li>
+    <li>Provide adaptive difficulty that adjusts based on candidate performance.</li>
+  </ul>
+
+  <!-- 3. PROBLEM STATEMENT -->
+  <h2>3. Problem Statement</h2>
+  <div class="box">
+    <p>Traditional interview preparation relies on books, mock interviews, or expensive coaching. There is no affordable, accessible, and intelligent platform that can:</p>
+    <ul>
+      <li>Simulate real interview conditions with dynamic AI questions.</li>
+      <li>Accept spoken voice answers like a real interviewer.</li>
+      <li>Give instant, detailed, multi-dimensional feedback.</li>
+      <li>Adapt question difficulty based on candidate performance.</li>
+    </ul>
+    <p>The AI Smart Interview System solves all these problems in one integrated web platform.</p>
+  </div>
+
+  <!-- 4. SYSTEM ARCHITECTURE -->
+  <h2>4. System Architecture</h2>
+  <div class="arch">
+    <p style="text-align:center;font-weight:700;color:#475569;margin-bottom:14px;">Three-Tier Client–Server Architecture</p>
+    <div class="arch-row"><div class="arch-box">🖥️ Browser<br/><small>React.js SPA</small></div></div>
+    <div class="arrow">⬇️ REST API / JSON ⬆️</div>
+    <div class="arch-row"><div class="arch-box green">⚙️ Node.js Server<br/><small>Express.js</small></div></div>
+    <div class="arch-row" style="margin-top:6px;">
+      <div class="arch-box purple">🧠 OpenAI GPT<br/><small>Question + Analysis</small></div>
+      <div class="arch-box amber">🗄️ MongoDB<br/><small>Database</small></div>
+      <div class="arch-box gray">📄 pdf-parse<br/><small>Resume Skills</small></div>
+    </div>
+    <hr style="margin:14px 0;border:1px dashed #cbd5e1;"/>
+    <p style="text-align:center;font-weight:700;color:#475569;margin-bottom:10px;">Frontend Pages</p>
+    <div class="arch-row" style="flex-wrap:wrap;">
+      <div class="arch-box">📋 Landing</div>
+      <div class="arch-box">🔐 Auth</div>
+      <div class="arch-box green">🎤 Interview</div>
+      <div class="arch-box amber">📜 History</div>
+      <div class="arch-box purple">📄 Resume</div>
+      <div class="arch-box gray">📊 Dashboard</div>
+    </div>
+  </div>
+
+  <!-- 5. INTERVIEW FLOW -->
+  <h2>5. Interview Session Flow Diagram</h2>
+  <div class="arch">
+    <div class="flow">
+      <div class="fbox">User Login</div><span class="farrow">→</span>
+      <div class="fbox">Select Role &amp; Difficulty</div><span class="farrow">→</span>
+      <div class="fbox">AI Generates Question (OpenAI)</div><span class="farrow">→</span>
+      <div class="fbox">TTS Speaks Question</div>
+    </div>
+    <div class="flow">
+      <div class="fbox">User Answers via Voice (STT)</div><span class="farrow">→</span>
+      <div class="fbox">Answer Submitted</div><span class="farrow">→</span>
+      <div class="fbox">AI Analyzes Answer</div><span class="farrow">→</span>
+      <div class="fbox">Scores Displayed</div>
+    </div>
+    <div class="flow">
+      <div class="fbox">Adaptive Difficulty Check</div><span class="farrow">→</span>
+      <div class="fbox">Next Question (max 10)</div><span class="farrow">→</span>
+      <div class="fbox">Interview Complete</div><span class="farrow">→</span>
+      <div class="fbox">Session Saved to DB</div>
+    </div>
+  </div>
+
+  <!-- 6. MODULES -->
+  <h2>6. Module Descriptions</h2>
+  <div class="grid2">
+    <div class="card"><h3>🔐 Authentication</h3><ul><li>User Registration with bcrypt password hashing</li><li>JWT-based secure login</li><li>Protected routes via middleware</li></ul></div>
+    <div class="card"><h3>🎤 Interview Room</h3><ul><li>Role: Software Dev / HR / Managerial</li><li>Difficulty: Easy / Medium / Hard</li><li>Voice answer via Web Speech API</li><li>Adaptive difficulty engine</li></ul></div>
+    <div class="card"><h3>🧠 AI Analysis</h3><ul><li>Overall / Technical / Communication / Confidence Score</li><li>Strengths &amp; Weaknesses analysis</li><li>Suggested Answer + General Feedback</li></ul></div>
+    <div class="card"><h3>📄 Resume Upload</h3><ul><li>PDF upload via Multer</li><li>Text extraction using pdf-parse</li><li>Skills saved &amp; used to personalize questions</li></ul></div>
+    <div class="card"><h3>📜 Interview History</h3><ul><li>View all past sessions</li><li>See Role, Score, Questions count</li><li>Delete individual records</li></ul></div>
+    <div class="card"><h3>📊 Dashboard</h3><ul><li>Interview statistics overview</li><li>Progress tracking</li><li>Quick navigation to all features</li></ul></div>
+  </div>
+
+  <!-- 7. DATABASE SCHEMA -->
+  <h2>7. Database Schema</h2>
+  <div class="grid2">
+    <div class="schema">
+      <div class="schema-title">👤 User Collection</div>
+      <div class="schema-field"><span class="field-name">_id</span><span class="field-type">ObjectId</span></div>
+      <div class="schema-field"><span class="field-name">name</span><span class="field-type">String (required)</span></div>
+      <div class="schema-field"><span class="field-name">email</span><span class="field-type">String (unique)</span></div>
+      <div class="schema-field"><span class="field-name">password</span><span class="field-type">String (bcrypt)</span></div>
+      <div class="schema-field"><span class="field-name">resumeText</span><span class="field-type">String</span></div>
+      <div class="schema-field"><span class="field-name">skills</span><span class="field-type">Array[String]</span></div>
+      <div class="schema-field"><span class="field-name">createdAt</span><span class="field-type">Date</span></div>
+    </div>
+    <div class="schema">
+      <div class="schema-title">📋 Interview Collection</div>
+      <div class="schema-field"><span class="field-name">userId</span><span class="field-type">Ref → User</span></div>
+      <div class="schema-field"><span class="field-name">sessionId</span><span class="field-type">String (UUID)</span></div>
+      <div class="schema-field"><span class="field-name">role</span><span class="field-type">Enum (3 roles)</span></div>
+      <div class="schema-field"><span class="field-name">difficulty</span><span class="field-type">easy / medium / hard</span></div>
+      <div class="schema-field"><span class="field-name">status</span><span class="field-type">in_progress / completed</span></div>
+      <div class="schema-field"><span class="field-name">answers</span><span class="field-type">Array[AnswerSchema]</span></div>
+      <div class="schema-field"><span class="field-name">overallScore</span><span class="field-type">Number (0–10)</span></div>
+      <div class="schema-field"><span class="field-name">totalQuestions</span><span class="field-type">Number</span></div>
+    </div>
+  </div>
+  <div class="schema">
+    <div class="schema-title">📝 Answer Sub-Schema (Embedded in Interview)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+      <div>
+        <div class="schema-field"><span class="field-name">question</span><span class="field-type">String</span></div>
+        <div class="schema-field"><span class="field-name">userAnswer</span><span class="field-type">String</span></div>
+        <div class="schema-field"><span class="field-name">score</span><span class="field-type">0–10</span></div>
+      </div>
+      <div>
+        <div class="schema-field"><span class="field-name">technicalScore</span><span class="field-type">0–10</span></div>
+        <div class="schema-field"><span class="field-name">communicationScore</span><span class="field-type">0–10</span></div>
+        <div class="schema-field"><span class="field-name">confidenceScore</span><span class="field-type">0–10</span></div>
+      </div>
+      <div>
+        <div class="schema-field"><span class="field-name">strengths</span><span class="field-type">Array[String]</span></div>
+        <div class="schema-field"><span class="field-name">weaknesses</span><span class="field-type">Array[String]</span></div>
+        <div class="schema-field"><span class="field-name">suggestedAnswer</span><span class="field-type">String</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. API ENDPOINTS -->
+  <h2>8. REST API Endpoints</h2>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Auth</th></tr>
+    <tr><td>POST</td><td>/api/auth/register</td><td>User registration</td><td>No</td></tr>
+    <tr><td>POST</td><td>/api/auth/login</td><td>Login, returns JWT token</td><td>No</td></tr>
+    <tr><td>POST</td><td>/api/interview/start</td><td>Start interview session</td><td>Yes</td></tr>
+    <tr><td>POST</td><td>/api/interview/answer</td><td>Submit answer, get AI feedback</td><td>Yes</td></tr>
+    <tr><td>POST</td><td>/api/interview/finish</td><td>Finish interview session</td><td>Yes</td></tr>
+    <tr><td>POST</td><td>/api/resume/upload</td><td>Upload PDF resume</td><td>Yes</td></tr>
+    <tr><td>GET</td><td>/api/resume/skills</td><td>Get extracted skills</td><td>Yes</td></tr>
+    <tr><td>GET</td><td>/api/dashboard/history</td><td>Get all interview history</td><td>Yes</td></tr>
+    <tr><td>DELETE</td><td>/api/dashboard/history/:id</td><td>Delete a session</td><td>Yes</td></tr>
+  </table>
+
+  <!-- 9. TECH STACK -->
+  <h2>9. Technology Stack</h2>
+  <div class="grid3">
+    <div class="card"><h3>🎨 Frontend</h3><ul><li>React.js 18 (Vite)</li><li>Tailwind CSS</li><li>Framer Motion</li><li>React Router v6</li><li>Axios</li></ul></div>
+    <div class="card"><h3>⚙️ Backend</h3><ul><li>Node.js + Express.js</li><li>MongoDB + Mongoose</li><li>JWT + bcryptjs</li><li>Multer + pdf-parse</li><li>Helmet + Rate Limit</li></ul></div>
+    <div class="card"><h3>🧠 AI / APIs</h3><ul><li>OpenAI GPT-3.5-turbo</li><li>Web Speech Recognition</li><li>Web Speech Synthesis (TTS)</li><li>UUID (Session IDs)</li></ul></div>
+  </div>
+
+  <!-- 10. FEATURES -->
+  <h2>10. Key Features</h2>
+  <table>
+    <tr><th>#</th><th>Feature</th><th>Description</th></tr>
+    <tr><td>1</td><td>🤖 AI Question Generation</td><td>GPT-3.5-turbo generates unique role-based interview questions</td></tr>
+    <tr><td>2</td><td>🎤 Voice Interview</td><td>Answer questions verbally using microphone (Speech-to-Text)</td></tr>
+    <tr><td>3</td><td>🔊 Text-to-Speech</td><td>AI interviewer speaks questions aloud using Web TTS API</td></tr>
+    <tr><td>4</td><td>📊 Multi-Score Feedback</td><td>Scores across Technical, Communication, Confidence, Overall (0–10)</td></tr>
+    <tr><td>5</td><td>📈 Adaptive Difficulty</td><td>Questions get harder/easier based on live performance score</td></tr>
+    <tr><td>6</td><td>📄 Resume Parsing</td><td>Upload PDF resume, extract skills, personalize questions</td></tr>
+    <tr><td>7</td><td>📜 Interview History</td><td>Full record of all past sessions with scores and details</td></tr>
+    <tr><td>8</td><td>🔐 Secure Auth</td><td>JWT + bcrypt authentication with protected API routes</td></tr>
+    <tr><td>9</td><td>⚡ Fallback Mode</td><td>Works without OpenAI key using built-in question bank (30 questions)</td></tr>
+    <tr><td>10</td><td>🎨 Light Mode UI</td><td>Clean white UI with 3D text effects and smooth animations</td></tr>
+  </table>
+
+  <!-- 11. CONCLUSION -->
+  <h2>11. Conclusion</h2>
+  <p>The <strong>AI Smart Interview System</strong> is a complete, production-ready full-stack application that combines modern web technologies with Artificial Intelligence. It addresses the real-world need for accessible, intelligent interview preparation. The system's adaptive questioning, voice interaction, resume personalization, and detailed feedback make it a comprehensive tool for any job seeker.</p>
+  <p>This project demonstrates strong expertise in MERN stack development, REST API design, AI API integration, real-time browser APIs, and modern UI/UX design principles — making it an excellent Final Year Project submission.</p>
+
+  <div style="text-align:center;margin-top:36px;padding-top:16px;border-top:2px solid #e2e8f0;color:#94a3b8;font-size:12px;">
+    <p>AI Smart Interview System &nbsp;•&nbsp; Final Year Project &nbsp;•&nbsp; 2025–2026</p>
+    <p>Developed by: Ashraf Ali &nbsp;|&nbsp; React • Node.js • MongoDB • OpenAI GPT</p>
+  </div>
+
+</div>
+
+<script>
+function downloadPDF() {
+  const btn = document.getElementById('btn-bar');
+  btn.style.display = 'none';
+  const element = document.getElementById('content');
+  const opt = {
+    margin:       [10, 10, 10, 10],
+    filename:     'AI_Smart_Interview_Synopsis.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true, logging: false },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+  html2pdf().set(opt).from(element).save().then(() => {
+    btn.style.display = 'flex';
+  });
+}
+
+function exportToWord() {
+  var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+  var postHtml = "</body></html>";
+  var html = preHtml + document.getElementById('content').innerHTML + postHtml;
+
+  var blob = new Blob(['\ufeff', html], {
+      type: 'application/msword'
+  });
+  
+  var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+  var filename = 'AI_Smart_Interview_Synopsis.doc';
+  
+  var downloadLink = document.createElement("a");
+  document.body.appendChild(downloadLink);
+  
+  if(navigator.msSaveOrOpenBlob ){
+      navigator.msSaveOrOpenBlob(blob, filename);
+  }else{
+      downloadLink.href = url;
+      downloadLink.download = filename;
+      downloadLink.click();
+  }
+  document.body.removeChild(downloadLink);
+}
+</script>
+
+</body>
+</html>

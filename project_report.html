@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Report - AI Smart Interview System</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
+
+  :root {
+    --text-color: #000;
+    --heading-color: #111;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--text-color);
+    background: #eef2f6;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* Toolbar */
+  #toolbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: #1e293b;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  #toolbar span { color: white; font-family: Arial, sans-serif; font-weight: bold; }
+  .btn {
+    background: #0ea5e9; color: white; border: none; padding: 10px 20px;
+    border-radius: 5px; cursor: pointer; font-family: Arial, sans-serif; font-weight: bold;
+    transition: background 0.3s;
+  }
+  .btn:hover { background: #0284c7; }
+
+  /* Report Container */
+  #report-container {
+    max-width: 800px;
+    margin: 80px auto 40px auto;
+    background: white;
+    padding: 60px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Page Break Class for html2pdf */
+  .page-break { page-break-before: always; }
+  .mt-4 { margin-top: 20px; }
+  .mt-8 { margin-top: 40px; }
+  .mb-4 { margin-bottom: 20px; }
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .text-justify { text-align: justify; }
+
+  h1, h2, h3 { font-family: Arial, Helvetica, sans-serif; color: var(--heading-color); }
+  h1 { font-size: 28px; margin-bottom: 20px; text-transform: uppercase; border-bottom: 2px solid #000; padding-bottom: 10px; }
+  h2 { font-size: 22px; margin-top: 30px; margin-bottom: 15px; }
+  h3 { font-size: 18px; margin-top: 20px; margin-bottom: 10px; }
+  
+  p { margin-bottom: 15px; text-align: justify; }
+  ul { margin-bottom: 15px; padding-left: 40px; }
+  li { margin-bottom: 8px; text-align: justify; }
+
+  /* Cover Page Styles */
+  .cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
+    text-align: center;
+  }
+  .cover-title { font-size: 36px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+  .cover-subtitle { font-size: 20px; margin-bottom: 60px; }
+  .cover-details { width: 100%; display: flex; justify-content: space-between; margin-top: auto; font-size: 18px; }
+
+  /* Table of Contents */
+  .toc-list { list-style: none; padding-left: 0; }
+  .toc-list li { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 18px; font-weight: bold; }
+  .toc-list li span.dots { flex-grow: 1; border-bottom: 1px dotted #000; margin: 0 10px; position: relative; top: -6px; }
+
+  /* Screenshot Placeholder */
+  .screenshot-placeholder {
+    width: 100%;
+    height: 300px;
+    background: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #64748b;
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+  }
+
+  @media print {
+    body { background: white; }
+    #toolbar { display: none; }
+    #report-container { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
+    .page-break { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span>AI Smart Interview System - Project Report</span>
+  <div>
+    <button class="btn" onclick="exportToWord()" style="background:#2563eb; margin-right:10px;">Download Word</button>
+    <button class="btn" onclick="window.print()" style="background:#475569; margin-right:10px;">Print</button>
+    <button class="btn" onclick="generatePDF()">Download PDF</button>
+  </div>
+</div>
+
+<div id="report-container">
+  
+  <!-- COVER PAGE -->
+  <div class="cover-page">
+    <h3 style="margin-bottom: 50px; text-transform: uppercase;">A Project Report On</h3>
+    <h1 class="cover-title" style="border:none;">AI Smart Interview System</h1>
+    <p class="cover-subtitle">Submitted in partial fulfillment of the requirements for the degree of</p>
+    <h2 style="margin-bottom: 50px;">Bachelor of Technology / BCA / MCA</h2>
+    
+    <div style="margin: 40px 0;">
+      <img src="https://via.placeholder.com/150?text=College+Logo" alt="College Logo" style="max-width: 150px; border-radius: 50%;">
+    </div>
+
+    <div class="cover-details">
+      <div class="text-left" style="text-align: left;">
+        <p><b>Submitted By:</b></p>
+        <p>Ashraf Ali</p>
+      </div>
+      <div class="text-right">
+        <p><b>Under the Guidance of:</b></p>
+        <p>[Guide Name]</p>
+        <p>[Designation]</p>
+      </div>
+    </div>
+    
+    <div style="margin-top: 60px;">
+      <h3>[Department Name]</h3>
+      <h3>[College/University Name]</h3>
+      <h3>2025 - 2026</h3>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ACKNOWLEDGEMENT -->
+  <h1 class="text-center">Acknowledgement</h1>
+  <p class="mt-8">I would like to express my profound gratitude to everyone who supported me throughout the course of this project. I am deeply thankful to my guide, <b>[Guide Name]</b>, for their continuous guidance, encouragement, and valuable feedback, which have been instrumental in the successful completion of the "AI Smart Interview System."</p>
+  <p>I also extend my sincere thanks to the Head of the Department and the faculty members for providing the necessary resources and an environment conducive to learning and innovation.</p>
+  <p>Finally, I would like to thank my family and friends for their unwavering support and motivation during my academic journey.</p>
+  <div class="text-right mt-8">
+    <p><b>Ashraf Ali</b></p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- DECLARATION -->
+  <h1 class="text-center">Declaration</h1>
+  <p class="mt-8">I, <b>Ashraf Ali</b>, hereby declare that the project entitled "<b>AI Smart Interview System</b>" submitted in partial fulfillment of the requirements for the degree is an original piece of work carried out by me under the supervision of <b>[Guide Name]</b>. This work has not been submitted elsewhere for any other degree or diploma.</p>
+  <p>All information, data, and references used in this project have been duly acknowledged.</p>
+  <div class="mt-8" style="display: flex; justify-content: space-between; margin-top: 100px;">
+    <div>
+      <p><b>Date:</b> ______________</p>
+      <p><b>Place:</b> ______________</p>
+    </div>
+    <div class="text-right">
+      <p>_______________________</p>
+      <p><b>Signature of Student</b></p>
+      <p>Ashraf Ali</p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ABSTRACT -->
+  <h1 class="text-center">Abstract</h1>
+  <p class="mt-8">The "AI Smart Interview System" is a full-stack web application designed to revolutionize interview preparation by leveraging the power of Artificial Intelligence. Traditional interview preparation often lacks realistic simulation, personalized feedback, and targeted question generation. This project addresses these shortcomings by providing a dynamic, interactive, and intelligent platform for mock interviews.</p>
+  <p>Built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and integrated with OpenAI's GPT models, the system dynamically generates role-specific interview questions. A standout feature is the integration of Speech-to-Text (STT) and Text-to-Speech (TTS) technologies, allowing users to answer questions verbally, mimicking a real-world interview scenario. Furthermore, the system incorporates a Resume-Based mode, where it parses uploaded PDF resumes to extract skills and tailor questions specifically to the candidate's profile.</p>
+  <p>Upon completion of an interview, the AI evaluates the spoken answers and provides comprehensive, multi-dimensional feedback, including scores for technical knowledge, communication, and confidence, along with identifying strengths, weaknesses, and suggesting optimal answers. By providing an adaptive, realistic, and highly analytical preparation environment, this system empowers job seekers to build confidence and improve their interview performance effectively.</p>
+
+  <div class="page-break"></div>
+
+  <!-- TABLE OF CONTENTS -->
+  <h1 class="text-center">Contents</h1>
+  <ul class="toc-list mt-8">
+    <li>1. Introduction <span class="dots"></span> 1</li>
+    <li>2. Objective <span class="dots"></span> 2</li>
+    <li>3. Existing System <span class="dots"></span> 3</li>
+    <li>4. Scope of Project <span class="dots"></span> 4</li>
+    <li>5. Technologies Used <span class="dots"></span> 5</li>
+    <li>6. System Design <span class="dots"></span> 6</li>
+    <li>7. Working of Project <span class="dots"></span> 8</li>
+    <li>8. Screenshot & Output <span class="dots"></span> 10</li>
+    <li>9. Future Scope <span class="dots"></span> 12</li>
+    <li>10. Conclusion <span class="dots"></span> 13</li>
+    <li>11. References <span class="dots"></span> 14</li>
+  </ul>
+
+  <div class="page-break"></div>
+
+  <!-- 1. INTRODUCTION -->
+  <h1>1. Introduction</h1>
+  <p>In today's highly competitive job market, clearing technical and HR interviews is a significant hurdle for students and job seekers. While theoretical knowledge is essential, articulating answers confidently and structuring responses correctly during an interview is equally critical. The "AI Smart Interview System" is developed to bridge the gap between theoretical knowledge and practical interview performance.</p>
+  <p>This project is a comprehensive web-based platform that acts as a virtual AI interviewer. Unlike static question banks, this system provides a dynamic interaction loop. It asks questions aloud, listens to the user's spoken answers, and evaluates the responses in real-time. By integrating state-of-the-art Natural Language Processing (NLP) via OpenAI, the system provides nuanced feedback that helps candidates pinpoint exactly where they need improvement.</p>
+
+  <!-- 2. OBJECTIVE -->
+  <h2>2. Objective</h2>
+  <p>The primary objectives of the AI Smart Interview System are:</p>
+  <ul>
+    <li>To develop a realistic interview simulation environment using voice-based interactions.</li>
+    <li>To dynamically generate relevant interview questions based on the selected role, difficulty level, and user's resume.</li>
+    <li>To evaluate spoken answers intelligently and provide a multi-metric score (Technical, Communication, Confidence).</li>
+    <li>To implement adaptive difficulty, adjusting the complexity of questions based on the user's ongoing performance.</li>
+    <li>To maintain a detailed history of past interviews to allow users to track their progress over time.</li>
+  </ul>
+
+  <!-- 3. EXISTING SYSTEM -->
+  <h2>3. Existing System</h2>
+  <p>Currently, candidates prepare for interviews using several disparate methods, each with significant limitations:</p>
+  <ul>
+    <li><b>Static Websites & Books:</b> Provide lists of questions and answers but offer no interactive practice or feedback on delivery.</li>
+    <li><b>Peer Mock Interviews:</b> Practicing with friends can be helpful but lacks expert evaluation and is constrained by the peer's knowledge level.</li>
+    <li><b>Professional Coaching:</b> Highly effective but often prohibitively expensive for students and fresh graduates.</li>
+    <li><b>Basic Online Tests:</b> Mostly Multiple Choice Questions (MCQs) or coding environments that do not test verbal communication or behavioral responses.</li>
+  </ul>
+  <p>The existing systems fail to provide a cohesive, affordable, and intelligent platform that tests both knowledge and spoken communication simultaneously.</p>
+
+  <!-- 4. SCOPE OF PROJECT -->
+  <h2>4. Scope of Project</h2>
+  <p>The scope of this project encompasses the design, development, and deployment of a full-stack web application. It includes:</p>
+  <ul>
+    <li><b>User Management:</b> Secure registration and login authentication using JWT and bcrypt.</li>
+    <li><b>Resume Analysis:</b> Parsing uploaded PDF resumes to extract keywords and skills to personalize the interview experience.</li>
+    <li><b>Voice Interaction:</b> Utilizing Web Speech APIs for converting AI text to speech and user speech to text.</li>
+    <li><b>AI Evaluation:</b> Integrating OpenAI's GPT models to analyze the semantic meaning of user answers against the generated questions to provide detailed feedback.</li>
+    <li><b>Dashboard & Analytics:</b> Visualizing user progress and maintaining records of all completed sessions.</li>
+  </ul>
+
+  <div class="page-break"></div>
+
+  <!-- 5. TECHNOLOGIES USED -->
+  <h1>5. Technologies Used</h1>
+  <p>The system is built on modern web technologies ensuring scalability, performance, and a rich user experience.</p>
+  
+  <h3>Frontend Development</h3>
+  <ul>
+    <li><b>React.js:</b> A JavaScript library for building user interfaces, utilized for creating a single-page application (SPA).</li>
+    <li><b>Tailwind CSS:</b> A utility-first CSS framework used for rapid UI styling, ensuring a responsive and modern design (including custom 3D text effects).</li>
+    <li><b>Framer Motion:</b> Used for implementing smooth animations and page transitions.</li>
+  </ul>
+
+  <h3>Backend Development</h3>
+  <ul>
+    <li><b>Node.js:</b> A JavaScript runtime built on Chrome's V8 engine, executing backend code.</li>
+    <li><b>Express.js:</b> A web application framework for Node.js used to build robust RESTful APIs.</li>
+  </ul>
+
+  <h3>Database</h3>
+  <ul>
+    <li><b>MongoDB:</b> A NoSQL database used to store user profiles, resume data, and detailed interview session histories.</li>
+    <li><b>Mongoose:</b> An Object Data Modeling (ODM) library for MongoDB and Node.js.</li>
+  </ul>
+
+  <h3>AI & Browser APIs</h3>
+  <ul>
+    <li><b>OpenAI API (GPT-3.5 Turbo):</b> The core intelligence engine responsible for generating dynamic questions and evaluating user answers.</li>
+    <li><b>Web Speech API:</b> Built-in browser APIs utilized for Speech-to-Text (STT) and Text-to-Speech (TTS) functionalities.</li>
+    <li><b>pdf-parse:</b> A Node.js module used to extract text from user-uploaded PDF resumes.</li>
+  </ul>
+
+  <!-- 6. SYSTEM DESIGN -->
+  <h2>6. System Design</h2>
+  <p>The architecture follows a classic Three-Tier Client-Server model.</p>
+  
+  <h3>6.1 Architecture Overview</h3>
+  <ul>
+    <li><b>Presentation Layer (Frontend):</b> The React application manages UI state, captures microphone input, plays audio, and communicates with the backend via REST APIs.</li>
+    <li><b>Application Layer (Backend):</b> The Express server handles business logic, authentication, file processing (resume parsing), and acts as a secure intermediary between the client and the OpenAI API.</li>
+    <li><b>Data Layer (Database):</b> MongoDB persistently stores user credentials securely, along with comprehensive logs of every question asked and answered during interview sessions.</li>
+  </ul>
+
+  <h3>6.2 Database Schema</h3>
+  <p>The primary entities are <b>User</b> and <b>Interview</b>.</p>
+  <ul>
+    <li><b>User Schema:</b> Stores name, email, hashed password, extracted resume text, and an array of identified skills.</li>
+    <li><b>Interview Schema:</b> Stores the user ID, session ID, role, difficulty, status, and an array of embedded <i>Answer Documents</i>.</li>
+    <li><b>Answer Document:</b> Stores the specific question, the transcribed user answer, individual scores (technical, communication, confidence), strengths, weaknesses, and a suggested ideal answer.</li>
+  </ul>
+
+  <div class="page-break"></div>
+
+  <!-- 7. WORKING OF PROJECT -->
+  <h1>7. Working of Project</h1>
+  <p>The operational flow of the AI Smart Interview System is designed to be intuitive and closely mimic a real interview process.</p>
+
+  <h3>Step 1: Registration and Resume Upload</h3>
+  <p>The user registers and logs into the platform. To leverage personalized interviews, the user navigates to the Resume section and uploads their PDF resume. The backend extracts text and identifies key skills.</p>
+
+  <h3>Step 2: Session Configuration</h3>
+  <p>The user navigates to the Interview Room and configures the session. They select a target role (e.g., Software Developer, HR Round) and initial difficulty. They can optionally enable the "Resume-Based Interview" toggle.</p>
+
+  <h3>Step 3: The Interview Loop</h3>
+  <ul>
+    <li><b>Question Generation:</b> The backend requests a question from OpenAI, providing the user's skills, role, and current difficulty level as context.</li>
+    <li><b>Asking the Question:</b> The frontend receives the question and reads it aloud using the Text-to-Speech API.</li>
+    <li><b>Answering:</b> The user clicks the microphone icon and speaks their answer. The Speech-to-Text API transcribes this in real-time.</li>
+    <li><b>Evaluation:</b> Upon submission, the transcript is sent to the backend, which forwards it to OpenAI for evaluation against the original question.</li>
+    <li><b>Feedback & Adaptation:</b> The system returns detailed scores and feedback. Based on the overall score of the answer, the backend intelligently adjusts the difficulty of the next question.</li>
+  </ul>
+
+  <h3>Step 4: Completion and History</h3>
+  <p>After a predetermined number of questions (e.g., 10), the session concludes. An overall performance summary is displayed. The entire session data is saved to the database and can be reviewed later in the History and Dashboard sections.</p>
+
+  <!-- 8. SCREENSHOT / OUTPUT -->
+  <div class="page-break"></div>
+  <h1>8. Screenshot & Output</h1>
+  <p>This section outlines the primary user interfaces of the application.</p>
+  
+  <h3>8.1 Login Screen</h3>
+  <p>Secure authentication portal for users to access their accounts.</p>
+  <div class="screenshot-container text-center mt-4 mb-8">
+    <img src="login.png" alt="Login Screen" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <h3>8.2 Dashboard</h3>
+  <p>Displays aggregate statistics, recent scores, and options to start new sessions.</p>
+  <div class="screenshot-container text-center mt-4 mb-8">
+    <img src="dashboard.png" alt="Dashboard" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <h3>8.3 Resume Upload</h3>
+  <p>The interface where users upload their PDF resumes and view the skills extracted by the system.</p>
+  <div class="screenshot-container text-center mt-4 mb-8">
+    <img src="resume.png" alt="Resume Upload" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <h3>8.4 Interview Setup</h3>
+  <p>Configuring the interview role, difficulty, and enabling Resume-Based Mode.</p>
+  <div class="screenshot-container text-center mt-4 mb-8">
+    <img src="setup.png" alt="Interview Setup" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <h3>8.5 Interview History</h3>
+  <p>Chronological list of past interview sessions to track progress.</p>
+  <div class="screenshot-container text-center mt-4 mb-8">
+    <img src="history.png" alt="Interview History" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- 9. FUTURE SCOPE -->
+  <h1>9. Future Scope</h1>
+  <p>While the current system is fully functional, several enhancements can be integrated in the future:</p>
+  <ul>
+    <li><b>Video Integration & Analysis:</b> Incorporating webcam access to analyze facial expressions, eye contact, and body language using computer vision models.</li>
+    <li><b>Code Execution Environment:</b> For technical rounds, integrating an interactive code editor where users can write and compile code in real-time while explaining their logic.</li>
+    <li><b>Custom Question Banks:</b> Allowing organizations or professors to inject specific question sets for internal candidate screening or student assessments.</li>
+    <li><b>Multilingual Support:</b> Expanding the speech recognition and generation to support multiple languages for broader accessibility.</li>
+  </ul>
+
+  <!-- 10. CONCLUSION -->
+  <h2>10. Conclusion</h2>
+  <p>The AI Smart Interview System successfully demonstrates the powerful application of generative AI and browser-based speech APIs in the educational and professional development sectors. By providing a scalable, intelligent, and interactive mock interview platform, the project effectively addresses the limitations of traditional interview preparation methods.</p>
+  <p>The system not only tests domain knowledge but actively helps candidates improve their verbal communication and confidence through personalized, constructive feedback. The integration of resume parsing further ensures that the simulated interviews are highly relevant to the individual's specific background, making it an invaluable tool for modern job seekers.</p>
+
+  <!-- 11. REFERENCES -->
+  <h2>11. References</h2>
+  <ul>
+    <li>OpenAI API Documentation. Available at: <i>https://platform.openai.com/docs</i></li>
+    <li>React.js Official Documentation. Available at: <i>https://reactjs.org/docs</i></li>
+    <li>Express.js framework. Available at: <i>https://expressjs.com/</i></li>
+    <li>MongoDB Documentation. Available at: <i>https://docs.mongodb.com/</i></li>
+    <li>Web Speech API - MDN Web Docs. Available at: <i>https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API</i></li>
+    <li>Tailwind CSS Documentation. Available at: <i>https://tailwindcss.com/docs</i></li>
+  </ul>
+
+</div>
+
+<script>
+  function generatePDF() {
+    const element = document.getElementById('report-container');
+    const opt = {
+      margin:       [10, 10, 10, 10],
+      filename:     'Project_Report_AI_Smart_Interview.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    
+    document.getElementById('toolbar').style.display = 'none';
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+      document.getElementById('toolbar').style.display = 'flex';
+    });
+  }
+
+  function exportToWord() {
+    var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    var postHtml = "</body></html>";
+    var html = preHtml + document.getElementById('report-container').innerHTML + postHtml;
+
+    var blob = new Blob(['\ufeff', html], {
+        type: 'application/msword'
+    });
+    
+    var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+    var filename = 'Project_Report_AI_Smart_Interview.doc';
+    
+    var downloadLink = document.createElement("a");
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob ){
+        navigator.msSaveOrOpenBlob(blob, filename);
+    }else{
+        downloadLink.href = url;
+        downloadLink.download = filename;
+        downloadLink.click();
+    }
+    document.body.removeChild(downloadLink);
+  }
+</script>
+
+</body>
+</html>
